@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 	def create
 	  @post = Post.new(params)
 	  @post.save
-	  redirect_to post_path(@post)
+	  redirect_to post_path(@post.id)
 	end
 
 	def update
@@ -26,4 +26,10 @@ class PostsController < ApplicationController
 	def edit
 	  @post = Post.find(params[:id])
 	end
+
+# 	private
+#
+# def post_params
+#   params.require(:post).permit(:title, :description, :author_id, :post_status)
+# end
 end
